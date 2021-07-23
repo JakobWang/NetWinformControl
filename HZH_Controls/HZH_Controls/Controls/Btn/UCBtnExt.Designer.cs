@@ -48,8 +48,10 @@ namespace HZH_Controls.Controls
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbl = new System.Windows.Forms.Label();
             this.lblTips = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lbl
@@ -66,6 +68,7 @@ namespace HZH_Controls.Controls
             this.lbl.Text = "自定义按钮";
             this.lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lbl_MouseDown);
+            this.lbl.MouseHover += new System.EventHandler(this.lbl_MouseHover);
             // 
             // lblTips
             // 
@@ -110,7 +113,6 @@ namespace HZH_Controls.Controls
         /// The label tips
         /// </summary>
         private System.Windows.Forms.Label lblTips;
-
-
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

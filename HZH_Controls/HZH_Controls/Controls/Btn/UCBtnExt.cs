@@ -35,6 +35,11 @@ namespace HZH_Controls.Controls
     public partial class UCBtnExt : UCControlBase
     {
         #region 字段属性
+        [Description("提示文字"), Category("自定义")]
+        /// <summary>
+        /// The BTN text
+        /// </summary>
+        public string Tip_Text { get; set; }
         private bool enabledMouseEffect = false;
         [Description("是否启用鼠标效果"), Category("自定义")]
         public bool EnabledMouseEffect
@@ -191,6 +196,7 @@ namespace HZH_Controls.Controls
         Color m_cacheColor = Color.Empty;
         void lbl_MouseLeave(object sender, EventArgs e)
         {
+            toolTip1.Hide(lbl);
             if (enabledMouseEffect)
             {
                 if (MouseEffecting != null && MouseEffected != null)
@@ -250,6 +256,11 @@ namespace HZH_Controls.Controls
         {
             if (this.BtnClick != null)
                 BtnClick(this, e);
+        }
+
+        private void lbl_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show(Tip_Text, lbl);
         }
     }
 }
